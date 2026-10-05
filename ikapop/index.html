@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="IkaPop! — a vertical mobile puzzle by ikagames. Slide rows and columns, match colors, and clear the grid.">
+  <meta name="theme-color" content="#121420">
+  <title>IkaPop!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #121420;
+      --bg-soft: #1a1d2e;
+      --ink: #f4f5f8;
+      --muted: #b4b8c7;
+      --brand: #3dcfbf;
+      --brand-ink: #0b1218;
+      --accent: #ff7a45;
+      --line: rgba(244, 245, 248, 0.14);
+      --surface: rgba(255, 255, 255, 0.06);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f3f5f8;
+        --bg-soft: #ffffff;
+        --ink: #161822;
+        --muted: #555a6b;
+        --brand: #0e766e;
+        --brand-ink: #ffffff;
+        --accent: #e85d2c;
+        --line: rgba(22, 24, 34, 0.12);
+        --surface: rgba(18, 20, 32, 0.04);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Source Sans 3", Georgia, serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--brand);
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      background: #121420;
+      animation: fade 0.8s ease both;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center right;
+    }
+
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(18, 20, 32, 0.15) 35%, rgba(18, 20, 32, 0.88) 100%),
+        linear-gradient(90deg, rgba(18, 20, 32, 0.55) 0%, rgba(18, 20, 32, 0.1) 55%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 2rem, 40rem);
+      margin: 0 auto;
+      padding: 2rem 0 2.5rem;
+      animation: rise 0.75s ease 0.1s both;
+    }
+
+    .brand {
+      font-family: Outfit, sans-serif;
+      font-weight: 800;
+      font-size: clamp(3rem, 12vw, 4.75rem);
+      letter-spacing: -0.045em;
+      line-height: 0.95;
+      margin: 0;
+      color: #fff;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .developer {
+      margin: 0.4rem 0 0;
+      font-family: Outfit, sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.72);
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
+    }
+
+    .lead {
+      margin: 1rem 0 0;
+      max-width: 32rem;
+      font-size: 1.08rem;
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.35rem;
+      animation: rise 0.75s ease 0.2s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      padding: 0.75rem 1.2rem;
+      border-radius: 0.85rem;
+      text-decoration: none;
+      font-family: Outfit, sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: var(--brand-ink);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .below {
+      width: min(100% - 2rem, 40rem);
+      margin: 0 auto;
+      padding: 1.75rem 0 2.75rem;
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+    }
+
+    .meta {
+      font-size: 0.95rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .meta strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .hero-media {
+        object-position: center;
+      }
+
+      .hero-scrim {
+        background:
+          linear-gradient(90deg, rgba(18, 20, 32, 0.82) 0%, rgba(18, 20, 32, 0.45) 38%, rgba(18, 20, 32, 0.08) 62%, transparent 78%),
+          linear-gradient(180deg, transparent 55%, rgba(18, 20, 32, 0.55) 100%);
+      }
+
+      .hero-content {
+        margin: 0;
+        margin-left: max(2rem, calc((100% - 68rem) / 2));
+        width: min(100% - 4rem, 28rem);
+        padding: 3rem 0 3.5rem;
+      }
+
+      .below {
+        width: min(100% - 4rem, 68rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" aria-labelledby="title">
+    <img
+      class="hero-media"
+      src="assets/promo_1920x1080_en.png"
+      alt=""
+      width="1920"
+      height="1080"
+      decoding="async"
+      fetchpriority="high"
+    >
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-content">
+      <h1 class="brand" id="title">IkaPop!</h1>
+      <p class="developer">by ikagames</p>
+      <p class="lead">
+        A vertical mobile puzzle: slide rows and columns on a looping 5×7 grid
+        and match 3 or more cubes of the same color to clear them.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=it.ikagames.ikapop">
+          Get it on Google Play
+        </a>
+        <a class="btn btn-secondary" href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </header>
+
+  <footer class="below">
+    <div class="meta">
+      <p><strong>Contact:</strong> <a href="mailto:ikagames.support@gmail.com">ikagames.support@gmail.com</a></p>
+      <p><a href="privacy.html">Privacy policy</a> · <a href="../">ikagames</a></p>
+    </div>
+  </footer>
+</body>
+</html>

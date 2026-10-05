@@ -1,28 +1,39 @@
 # ikagames.github.io
 
-Sito statico di **IkaPop!** (sviluppatore: ikagames), pubblicato con [GitHub Pages](https://pages.github.com/) all'indirizzo <https://ikagames.github.io>.
+Sito statico dell'organizzazione **ikagames**, pubblicato con [GitHub Pages](https://pages.github.com/) su <https://ikagames.github.io>.
 
-Contiene:
+Struttura:
 
-- `index.html` — vetrina del gioco e link allo store
-- `privacy.html` — informativa privacy
-- `app-ads.txt` — verifica AdMob / app-ads.txt
-- `.nojekyll` — disabilita l'elaborazione Jekyll su GitHub Pages
+- `/` — hub studio (lista giochi)
+- `/ikapop/` — vetrina di **IkaPop!** e link allo store
+- `/ikapop/privacy.html` — informativa privacy di IkaPop!
+- `/app-ads.txt` — verifica AdMob (alla root del dominio, condiviso da tutti i giochi)
+- `.nojekyll` — disabilita Jekyll su GitHub Pages
+
+URL utili per Play Console / AdMob:
+
+| Uso | URL |
+|-----|-----|
+| Sito sviluppatore (hostname per app-ads) | `https://ikagames.github.io` |
+| Pagina gioco IkaPop! | `https://ikagames.github.io/ikapop/` |
+| Privacy IkaPop! | `https://ikagames.github.io/ikapop/privacy.html` |
+| app-ads.txt | `https://ikagames.github.io/app-ads.txt` |
+
+Per un nuovo gioco (es. IkaBlast), aggiungi una cartella `/ikablast/` con `index.html` e `privacy.html`, poi linkala dall'hub in root.
 
 ## Pubblicazione
 
 1. Push su `main` nel repository `ikagames/ikagames.github.io`.
-2. Su GitHub: **Settings → Pages → Build and deployment**.
-3. Source: **Deploy from a branch**, branch `main`, cartella `/ (root)`.
-4. Dopo qualche minuto il sito è disponibile su <https://ikagames.github.io>.
+2. Su GitHub: **Settings → Pages**, source branch `main`, cartella `/ (root)`.
+3. Dopo qualche minuto il sito è online.
 
-Per verificare `app-ads.txt` dopo il deploy:
+Verifica app-ads.txt:
 
 ```bash
 curl -i https://ikagames.github.io/app-ads.txt
 ```
 
-La risposta deve essere `200` e il corpo deve essere esattamente:
+Corpo atteso:
 
 ```text
 google.com, pub-8204656869502841, DIRECT, f08c47fec0942fa0

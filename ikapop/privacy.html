@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Informativa privacy di IkaPop! (ikagames).">
+  <meta name="theme-color" content="#0e766e" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b1210" media="(prefers-color-scheme: dark)">
+  <title>Privacy — IkaPop!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-top: #e8f7f4;
+      --bg-bottom: #f7f3ea;
+      --ink: #14201d;
+      --muted: #4a5c57;
+      --brand: #0e766e;
+      --accent: #e85d2c;
+      --line: rgba(20, 32, 29, 0.12);
+      --surface: rgba(255, 255, 255, 0.6);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-top: #0b1210;
+        --bg-bottom: #15221e;
+        --ink: #eef6f3;
+        --muted: #a7b8b2;
+        --brand: #2bb5a8;
+        --accent: #ff7a45;
+        --line: rgba(238, 246, 243, 0.12);
+        --surface: rgba(18, 32, 28, 0.72);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Source Sans 3", Georgia, serif;
+      color: var(--ink);
+      background:
+        radial-gradient(120% 80% at 10% -10%, rgba(14, 118, 110, 0.18), transparent 55%),
+        linear-gradient(165deg, var(--bg-top), var(--bg-bottom));
+      line-height: 1.6;
+    }
+
+    a { color: var(--brand); }
+    a:hover { color: var(--accent); }
+
+    .wrap {
+      width: min(100% - 2rem, 42rem);
+      margin: 0 auto;
+      padding: 2rem 0 3.5rem;
+    }
+
+    .top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.75rem;
+    }
+
+    .back {
+      font-family: Outfit, sans-serif;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    h1 {
+      font-family: Outfit, sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 8vw, 2.75rem);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin: 0 0 0.35rem;
+    }
+
+    .sub {
+      margin: 0 0 2rem;
+      color: var(--muted);
+    }
+
+    .lang {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      font-family: Outfit, sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .lang a {
+      text-decoration: none;
+      padding-bottom: 0.15rem;
+      border-bottom: 2px solid transparent;
+    }
+
+    .lang a:hover,
+    .lang a[aria-current="true"] {
+      border-bottom-color: var(--brand);
+    }
+
+    section {
+      margin-bottom: 2.75rem;
+      padding: 1.35rem 1.25rem;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background: var(--surface);
+      backdrop-filter: blur(8px);
+    }
+
+    h2 {
+      font-family: Outfit, sans-serif;
+      font-size: 1.35rem;
+      margin: 0 0 1rem;
+    }
+
+    h3 {
+      font-family: Outfit, sans-serif;
+      font-size: 1.05rem;
+      margin: 1.35rem 0 0.45rem;
+    }
+
+    p, li {
+      color: var(--muted);
+      margin: 0 0 0.85rem;
+    }
+
+    ul {
+      margin: 0 0 0.85rem;
+      padding-left: 1.2rem;
+    }
+
+    .updated {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <a class="back" href="./">← IkaPop!</a>
+      <span class="updated">Ultimo aggiornamento: 5 ottobre 2026</span>
+    </div>
+
+    <h1>Privacy</h1>
+    <p class="sub">Informativa privacy di IkaPop! — sviluppatore ikagames</p>
+
+    <nav class="lang" aria-label="Lingua">
+      <a href="#it" aria-current="true">Italiano</a>
+      <a href="#en">English</a>
+    </nav>
+
+    <section id="it" lang="it">
+      <h2>Informativa privacy (IT)</h2>
+
+      <p>
+        Questa informativa descrive come l’app mobile <strong>IkaPop!</strong>
+        (package <code>it.ikagames.ikapop</code>), sviluppata da
+        <strong>ikagames</strong>, tratta le informazioni quando la utilizzi.
+      </p>
+
+      <h3>Titolare</h3>
+      <p>
+        Per richieste relative alla privacy puoi scrivere a
+        <a href="mailto:ikagames.support@gmail.com">ikagames.support@gmail.com</a>.
+      </p>
+
+      <h3>Dati raccolti dall’app</h3>
+      <p>
+        IkaPop! non richiede la creazione di un account e non chiede
+        direttamente dati personali come nome, indirizzo email o numero di
+        telefono per giocare.
+      </p>
+      <p>
+        I progressi di gioco e le impostazioni locali restano salvati sul
+        dispositivo. Non vengono sincronizzati da ikagames su un server
+        proprietario descritto in questa informativa.
+      </p>
+
+      <h3>Pubblicità (Google AdMob)</h3>
+      <p>
+        L’app utilizza <strong>Google AdMob</strong> per mostrare annunci.
+        Google può raccogliere e trattare informazioni tecniche e
+        identificativi pubblicitari del dispositivo (ad esempio l’Advertising ID
+        su Android), nonché dati di utilizzo legati alla visualizzazione e
+        all’interazione con gli annunci, secondo le proprie norme e impostazioni
+        del dispositivo.
+      </p>
+      <p>
+        Per maggiori dettagli sul trattamento dei dati da parte di Google come
+        partner, consulta:
+        <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">
+          https://policies.google.com/technologies/partner-sites
+        </a>.
+      </p>
+
+      <h3>Base e finalità (in sintesi)</h3>
+      <ul>
+        <li>fornire il gioco e mantenere i progressi sul dispositivo;</li>
+        <li>mostrare annunci tramite Google AdMob;</li>
+        <li>rispondere alle richieste di supporto che ci invii via email.</li>
+      </ul>
+
+      <h3>Conservazione</h3>
+      <p>
+        I dati di gioco locali rimangono sul tuo dispositivo finché non
+        disinstalli l’app o non li cancelli tu. I dati trattati da Google AdMob
+        seguono le politiche di conservazione di Google.
+      </p>
+
+      <h3>I tuoi diritti e le tue scelte</h3>
+      <p>
+        Puoi limitare la personalizzazione degli annunci dalle impostazioni
+        sulla privacy del dispositivo Android (ad esempio le opzioni relative
+        all’Advertising ID). Per domande su questa informativa puoi contattarci
+        all’indirizzo indicato sopra.
+      </p>
+
+      <h3>Aggiornamenti</h3>
+      <p>
+        Questa informativa può essere aggiornata. La data in cima alla pagina
+        indica l’ultima revisione pubblicata su questo sito.
+      </p>
+    </section>
+
+    <section id="en" lang="en">
+      <h2>Privacy policy (EN)</h2>
+
+      <p>
+        This policy describes how the mobile app <strong>IkaPop!</strong>
+        (package <code>it.ikagames.ikapop</code>), developed by
+        <strong>ikagames</strong>, handles information when you use it.
+      </p>
+
+      <h3>Controller / contact</h3>
+      <p>
+        For privacy-related requests, contact
+        <a href="mailto:ikagames.support@gmail.com">ikagames.support@gmail.com</a>.
+      </p>
+
+      <h3>Data collected by the app</h3>
+      <p>
+        IkaPop! does not require an account and does not directly ask for
+        personal data such as your name, email address, or phone number to play.
+      </p>
+      <p>
+        Game progress and local settings remain stored on your device. They are
+        not synced by ikagames to a proprietary server described in this policy.
+      </p>
+
+      <h3>Advertising (Google AdMob)</h3>
+      <p>
+        The app uses <strong>Google AdMob</strong> to show ads. Google may
+        collect and process technical information and advertising identifiers on
+        the device (for example the Advertising ID on Android), as well as usage
+        data related to ad display and interaction, according to Google’s
+        policies and your device settings.
+      </p>
+      <p>
+        For more details about how Google processes data as a partner, see:
+        <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">
+          https://policies.google.com/technologies/partner-sites
+        </a>.
+      </p>
+
+      <h3>Purposes (summary)</h3>
+      <ul>
+        <li>provide the game and keep progress on the device;</li>
+        <li>show ads through Google AdMob;</li>
+        <li>respond to support requests you send by email.</li>
+      </ul>
+
+      <h3>Retention</h3>
+      <p>
+        Local game data stays on your device until you uninstall the app or
+        clear it yourself. Data processed by Google AdMob follows Google’s
+        retention policies.
+      </p>
+
+      <h3>Your choices</h3>
+      <p>
+        You can limit ad personalization in your Android privacy settings (for
+        example options related to the Advertising ID). For questions about this
+        policy, contact us at the address above.
+      </p>
+
+      <h3>Updates</h3>
+      <p>
+        This policy may be updated. The date at the top of the page shows the
+        latest revision published on this site.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
