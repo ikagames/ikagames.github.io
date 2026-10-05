@@ -1,6 +1,6 @@
 # ikagames.github.io
 
-Sito statico dell'organizzazione **ikagames**, pubblicato con [GitHub Pages](https://pages.github.com/) su <https://ikagames.github.io>.
+Sito statico dell'organizzazione **IkaGames**, pubblicato con [GitHub Pages](https://pages.github.com/) su <https://ikagames.github.io>.
 
 Struttura:
 
