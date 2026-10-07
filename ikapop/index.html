@@ -126,49 +126,53 @@
     .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      align-items: center;
+      gap: 0.65rem;
       margin-top: 1.35rem;
       animation: rise 0.75s ease 0.2s both;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 3rem;
-      padding: 0.75rem 1.2rem;
-      border-radius: 0.85rem;
-      text-decoration: none;
-      font-family: Outfit, sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+    .store-badge {
+      display: inline-block;
+      line-height: 0;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease;
     }
 
-    .btn:hover {
+    .store-badge:hover {
       transform: translateY(-2px);
+      opacity: 0.92;
     }
 
-    .btn-primary {
-      background: var(--brand);
-      color: var(--brand-ink);
+    .store-badge:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 3px;
+      border-radius: 0.4rem;
     }
 
-    .btn-primary:hover {
-      background: var(--accent);
-      color: #fff;
+    .store-badge img {
+      display: block;
+      height: 2.75rem;
+      width: auto;
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      backdrop-filter: blur(8px);
+    .store-note {
+      flex-basis: 100%;
+      margin: 0;
+      min-height: 1.25rem;
+      font-family: Outfit, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.88);
+      opacity: 0;
+      transition: opacity 0.2s ease;
     }
 
-    .btn-secondary:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.18);
+    .store-note.is-visible {
+      opacity: 1;
     }
 
     .below {
@@ -260,10 +264,30 @@
         and match 3 or more cubes of the same color to clear them.
       </p>
       <div class="actions">
-        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=it.ikagames.ikapop">
-          Get it on Google Play
+        <a
+          class="store-badge"
+          href="https://play.google.com/store/apps/details?id=it.ikagames.ikapop"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            src="assets/badges/google-play-badge.png"
+            alt="Get it on Google Play"
+            width="564"
+            height="168"
+            decoding="async"
+          >
         </a>
-        <a class="btn btn-secondary" href="privacy.html">Privacy</a>
+        <button class="store-badge" type="button" id="app-store-btn" aria-describedby="app-store-note">
+          <img
+            src="assets/badges/app-store-badge.svg"
+            alt="Download on the App Store"
+            width="120"
+            height="40"
+            decoding="async"
+          >
+        </button>
+        <p class="store-note" id="app-store-note" role="status" aria-live="polite"></p>
       </div>
     </div>
   </header>
@@ -274,5 +298,24 @@
       <p><a href="privacy.html">Privacy policy</a> · <a href="../">IkaGames</a></p>
     </div>
   </footer>
+  <script>
+    (function () {
+      var btn = document.getElementById("app-store-btn");
+      var note = document.getElementById("app-store-note");
+      var hideTimer;
+
+      if (!btn || !note) return;
+
+      btn.addEventListener("click", function () {
+        note.textContent = "Coming soon on the App Store.";
+        note.classList.add("is-visible");
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(function () {
+          note.classList.remove("is-visible");
+          note.textContent = "";
+        }, 3200);
+      });
+    })();
+  </script>
 </body>
 </html>
