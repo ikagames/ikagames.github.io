@@ -40,13 +40,19 @@
       box-sizing: border-box;
     }
 
+    html {
+      overflow-x: clip;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
+      min-height: 100svh;
       font-family: "Source Sans 3", Georgia, serif;
       color: var(--ink);
       background: var(--bg);
       line-height: 1.55;
+      overflow-x: clip;
     }
 
     a {
@@ -60,13 +66,19 @@
     .hero {
       position: relative;
       min-height: 100vh;
-      min-height: 100dvh;
+      min-height: 100svh;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       overflow: hidden;
       background: #121420;
       animation: fade 0.8s ease both;
+    }
+
+    .hero-visual {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
     }
 
     .hero-media {
@@ -142,9 +154,11 @@
       transition: transform 0.18s ease, opacity 0.18s ease;
     }
 
-    .store-badge:hover {
-      transform: translateY(-2px);
-      opacity: 0.92;
+    @media (hover: hover) and (pointer: fine) {
+      .store-badge:hover {
+        transform: translateY(-2px);
+        opacity: 0.92;
+      }
     }
 
     .store-badge:focus-visible {
@@ -220,6 +234,57 @@
       }
     }
 
+    @media (max-width: 899px) {
+      .hero {
+        min-height: 0;
+        overflow: visible;
+        display: block;
+        background: var(--bg);
+      }
+
+      .hero-visual {
+        position: relative;
+        aspect-ratio: 1 / 1;
+        max-height: min(72vw, 22rem);
+        background: #121420;
+      }
+
+      .hero-media {
+        object-position: center top;
+      }
+
+      .hero-scrim {
+        background: linear-gradient(
+          180deg,
+          rgba(18, 20, 32, 0.08) 0%,
+          rgba(18, 20, 32, 0.82) 100%
+        );
+      }
+
+      .hero-content {
+        padding: 1.35rem 0 2rem;
+        animation: none;
+      }
+
+      .brand {
+        color: var(--ink);
+        text-shadow: none;
+      }
+
+      .developer,
+      .lead {
+        color: var(--muted);
+      }
+
+      .store-note {
+        color: var(--muted);
+      }
+
+      .actions {
+        animation: none;
+      }
+    }
+
     @media (min-width: 900px) {
       .hero-media {
         object-position: center;
@@ -246,16 +311,18 @@
 </head>
 <body>
   <header class="hero" aria-labelledby="title">
-    <img
-      class="hero-media"
-      src="assets/promo_1920x1080_en.png"
-      alt=""
-      width="1920"
-      height="1080"
-      decoding="async"
-      fetchpriority="high"
-    >
-    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-visual">
+      <img
+        class="hero-media"
+        src="assets/promo_1920x1080_en.png"
+        alt=""
+        width="1920"
+        height="1080"
+        decoding="async"
+        fetchpriority="high"
+      >
+      <div class="hero-scrim" aria-hidden="true"></div>
+    </div>
     <div class="hero-content">
       <h1 class="brand" id="title">IkaPop!</h1>
       <p class="developer">by IkaGames</p>
