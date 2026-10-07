@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="IkaPop! — a vertical mobile puzzle by IkaGames. Slide rows and columns, match colors, and clear the grid.">
   <meta name="theme-color" content="#121420">
   <title>IkaPop!</title>
@@ -240,17 +240,24 @@
         overflow: visible;
         display: block;
         background: var(--bg);
+        padding-top: env(safe-area-inset-top, 0);
       }
 
       .hero-visual {
         position: relative;
-        aspect-ratio: 1 / 1;
-        max-height: min(72vw, 22rem);
+        width: 100%;
         background: #121420;
       }
 
       .hero-media {
-        object-position: center top;
+        position: relative;
+        inset: auto;
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: contain;
+        object-position: center center;
       }
 
       .hero-scrim {
