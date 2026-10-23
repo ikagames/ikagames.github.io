@@ -147,10 +147,6 @@
     .store-badge {
       display: inline-block;
       line-height: 0;
-      border: 0;
-      padding: 0;
-      background: transparent;
-      cursor: pointer;
       transition: transform 0.18s ease, opacity 0.18s ease;
     }
 
@@ -171,22 +167,6 @@
       display: block;
       height: 2.75rem;
       width: auto;
-    }
-
-    .store-note {
-      flex-basis: 100%;
-      margin: 0;
-      min-height: 1.25rem;
-      font-family: Outfit, sans-serif;
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.88);
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-
-    .store-note.is-visible {
-      opacity: 1;
     }
 
     .below {
@@ -283,10 +263,6 @@
         color: var(--muted);
       }
 
-      .store-note {
-        color: var(--muted);
-      }
-
       .actions {
         animation: none;
       }
@@ -321,10 +297,10 @@
     <div class="hero-visual">
       <img
         class="hero-media"
-        src="assets/promo_1920x1080_en.png"
+        src="assets/promo_3840x2160_en.png"
         alt=""
-        width="1920"
-        height="1080"
+        width="3840"
+        height="2160"
         decoding="async"
         fetchpriority="high"
       >
@@ -352,7 +328,12 @@
             decoding="async"
           >
         </a>
-        <button class="store-badge" type="button" id="app-store-btn" aria-describedby="app-store-note">
+        <a
+          class="store-badge"
+          href="https://apps.apple.com/us/app/ikapop/id6819672180"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <img
             src="assets/badges/app-store-badge.svg"
             alt="Download on the App Store"
@@ -360,8 +341,7 @@
             height="40"
             decoding="async"
           >
-        </button>
-        <p class="store-note" id="app-store-note" role="status" aria-live="polite"></p>
+        </a>
       </div>
     </div>
   </header>
@@ -372,24 +352,5 @@
       <p><a href="privacy.html">Privacy policy</a> · <a href="../">IkaGames</a></p>
     </div>
   </footer>
-  <script>
-    (function () {
-      var btn = document.getElementById("app-store-btn");
-      var note = document.getElementById("app-store-note");
-      var hideTimer;
-
-      if (!btn || !note) return;
-
-      btn.addEventListener("click", function () {
-        note.textContent = "Coming soon on the App Store.";
-        note.classList.add("is-visible");
-        clearTimeout(hideTimer);
-        hideTimer = setTimeout(function () {
-          note.classList.remove("is-visible");
-          note.textContent = "";
-        }, 3200);
-      });
-    })();
-  </script>
 </body>
 </html>
